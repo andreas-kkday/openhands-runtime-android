@@ -14,7 +14,7 @@ RUN apt update && apt install -y temurin-17-jdk
 
 
 # 2. Set up Android SDK paths
-RUN apt install -y adb android-sdk-platform-tools
+RUN apt install -y adb android-sdk-platform-tools sdkmanager
 
 # 4. Accept licenses and install platform tools
 RUN yes | sdkmanager --licenses && \
