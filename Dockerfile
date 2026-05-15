@@ -1,5 +1,5 @@
 # Use the official OpenHands runtime as the base
-FROM ghcr.io/all-hands-ai/runtime:latest-nikolaik
+FROM ghcr.io/openhands/agent-server:latest
 
 USER root
 
