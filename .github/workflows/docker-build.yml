@@ -54,7 +54,6 @@ jobs:
         load: true
         push: false
         tags: openhands-android-sdk:latest
-        cache-from: type=gha
         cache-to: type=gha,mode=max
 
     - name: Test Docker image
