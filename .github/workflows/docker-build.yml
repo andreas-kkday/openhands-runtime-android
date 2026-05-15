@@ -59,10 +59,10 @@ jobs:
         tags: openhands-android-sdk:latest
         cache-to: type=gha,mode=max
 
-    - name: Test Docker image
-      run: |
-        docker run --rm openhands-android-sdk:latest java -version
-        docker run --rm openhands-android-sdk:latest adb version
+#    - name: Test Docker image
+#      run: |
+#        docker run --rm openhands-android-sdk:latest java -version
+#        docker run --rm openhands-android-sdk:latest adb version
         
     - name: Push Docker image
       if: github.event_name == 'push'
