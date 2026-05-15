@@ -3,6 +3,8 @@ FROM ghcr.io/all-hands-ai/runtime:latest-nikolaik
 
 USER root
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 # 1. Install Java (OpenJDK 17 is standard for modern Android)
 RUN apt update && apt install -y wget apt-transport-https gnupg wget unzip
 RUN wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/adoptium.gpg > /dev/null
