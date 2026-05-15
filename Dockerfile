@@ -12,16 +12,10 @@ RUN echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION
 
 RUN apt update && apt install -y temurin-17-jdk
 
+
 # 2. Set up Android SDK paths
-ENV ANDROID_HOME=/opt/android-sdk
-ENV PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
-# 3. Download Android Command Line Tools
-RUN mkdir -p $ANDROID_HOME/cmdline-tools && \
-    wget https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip -O /tmp/tools.zip && \
-    unzip /tmp/tools.zip -d $ANDROID_HOME/cmdline-tools && \
-    mv $ANDROID_HOME/cmdline-tools/cmdline-tools $ANDROID_HOME/cmdline-tools/latest && \
-    rm /tmp/tools.zip
+RUN apt install -y adb android-sdk-platform-tools
 
 # 4. Accept licenses and install platform tools
 RUN yes | sdkmanager --licenses && \
-    sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
+    sdkmanager "platforms;android-36.1" "build-tools;36.1.0"
